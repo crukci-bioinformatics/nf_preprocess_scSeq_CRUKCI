@@ -1,6 +1,6 @@
 # Preprocess scRNAseq data
 
-This workflow is specific to the CRUK CI computational infrastructure.
+**This workflow is specifically designed to work the CRUK CI computational infrastructure.**
 
 The workflow downloads the single cell data as fastq from the Genomics server using
 Clarity tools, it then renames the fastq files to conform with CellRangers
