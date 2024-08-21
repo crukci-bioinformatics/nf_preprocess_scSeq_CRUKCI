@@ -14,7 +14,7 @@ add functionality for other assays/chemistries as needed.
 
 The SLX id should be specified in a parameters yaml file or on the command line:
 
-`slx_id`: The SLX ID of the sequencing run
+* `slx_id`: The SLX ID of the sequencing run
 
 All of the workflow outputs will be published into a directory named after the
 SLX id.
@@ -23,7 +23,7 @@ SLX id.
 
 To specify the reference you can just provide the species in the parameters:
 
-`species` - "mus_musculus" or "homo_sapiens"
+* `species` - "mus_musculus" or "homo_sapiens"
 
 This will cause the workflow to download the reference data for the
 specified species from 10X:
@@ -33,25 +33,25 @@ specified species from 10X:
 
 The reference data will be published into the directory:
 
-**_${launchDir}_/references**
+* **_${launchDir}_/references**
 
 Alternatively, if you wish to use an existing reference specify:
 
-`reference_dir` - The path to the CellRanger reference_dir
+* `reference_dir` - The path to the CellRanger reference_dir
 
 ## CellRanger software
 
 The workflow has a singularity container that contains the CellRanger software
 version 8.0.1 and an R installation. This is currenly located at:
 
-/home/bioinformatics/software/containers/cruk_ci_preprocess_scSeq-8.0.1.sif
+* /home/bioinformatics/software/containers/cruk_ci_preprocess_scSeq-8.0.1.sif
 
 The intention is to keep the container up to date as new versions of CellRanger
 are released.
 
 If you wish to use a different version of CellRanger specify:
 
-`cellranger_dir` - The path to the CellRanger software directory
+* `cellranger_dir` - The path to the CellRanger software directory
 
 The workflow will generate the following outputs:
 
