@@ -33,7 +33,7 @@ specified species from 10X:
 
 The reference data will be published into the directory:
 
-*${lauchDir}*/references
+**_${launchDir}_/references**
 
 Alternatively, if you wish to use an existing reference specify:
 
