@@ -28,8 +28,8 @@ To specify the reference you can just provide the species in the parameters:
 This will cause the workflow to download the reference data for the
 specified species from 10X:
 
-*homo_sapiens*: https://cf.10xgenomics.com/supp/cell-exp/refdata-gex-GRCh38-2024-A.tar.gz
-*mus_musculus*: https://cf.10xgenomics.com/supp/cell-exp/refdata-gex-GRCm39-2024-A.tar.gz
+*homo_sapiens*: https://cf.10xgenomics.com/supp/cell-exp/refdata-gex-GRCh38-2024-A.tar.gz  
+*mus_musculus*: https://cf.10xgenomics.com/supp/cell-exp/refdata-gex-GRCm39-2024-A.tar.gz  
 
 The reference data will be published into the directory:
 
