@@ -23,21 +23,21 @@ SLX id.
 
 To specify the reference you can just provide the species in the parameters:
 
-`species`: "mus_musculus" or "homo_sapiens"
+`species` - "mus_musculus" or "homo_sapiens"
 
 This will cause the workflow to download the reference data for the
 specified species from 10X:
 
-homo_sapiens: https://cf.10xgenomics.com/supp/cell-exp/refdata-gex-GRCh38-2024-A.tar.gz
-mus_musculus: https://cf.10xgenomics.com/supp/cell-exp/refdata-gex-GRCm39-2024-A.tar.gz
+*homo_sapiens*: https://cf.10xgenomics.com/supp/cell-exp/refdata-gex-GRCh38-2024-A.tar.gz
+*mus_musculus*: https://cf.10xgenomics.com/supp/cell-exp/refdata-gex-GRCm39-2024-A.tar.gz
 
 The reference data will be published into the directory:
 
-${lauchDir}/references
+*${lauchDir}*/references
 
 Alternatively, if you wish to use an existing reference specify:
 
-`reference_dir`: The path to the CellRanger reference_dir
+`reference_dir` - The path to the CellRanger reference_dir
 
 ## CellRanger software
 
@@ -51,19 +51,19 @@ are released.
 
 If you wish to use a different version of CellRanger specify:
 
-`cellranger_dir`: The path to the CellRanger software directory
+`cellranger_dir` - The path to the CellRanger software directory
 
 The workflow will generate the following outputs:
 
 * **fastq** - the raw fastq files and accompanying files as downloaded
               from the genomics server using Clarity tools
 * **reports/**:
-    * ./*<Barcode>*.web_summary.html - The CellRanger web summary reports for
+    * ./*\<Barcode\>*.web_summary.html - The CellRanger web summary reports for
                                      each sample, with the barcode added to file name
     * ./collated_metrics_file.csv - The summary metrics for all samples collated
                                     into a single file
     * ./summary_metrics.pdf - Bar plots of read depth and cell count per sample
-* **_<Barcode>_** - One directory of CellRanger count output for each
+* **_\<Barcode\>_** - One directory of CellRanger count output for each
                   sample, named according to the sample barcode
 
 # Running the pipeline
@@ -72,7 +72,7 @@ The pipeline can be run using the following command:
 
 ```bash
 nextflow run crukci-bioinformatics/nf_preprocess_scSeq_CRUKCI \
-    --slxid *<slxID>* \
-    --species *<species>* \
+    --slxid {slxID} \
+    --species {species} \
     -profile epyc
 ```
