@@ -53,7 +53,9 @@ If you wish to use a different version of CellRanger specify:
 
 * `cellranger_dir` - The path to the CellRanger software directory
 
-The workflow will generate the following outputs:
+## Outputs
+
+The workflow will generate the following outputs in the SLX directory:
 
 * **fastq** - the raw fastq files and accompanying files as downloaded
               from the genomics server using Clarity tools
@@ -66,7 +68,7 @@ The workflow will generate the following outputs:
 * **_\<Barcode\>_** - One directory of CellRanger count output for each
                   sample, named according to the sample barcode
 
-# Running the pipeline
+## Running the pipeline
 
 The pipeline can be run using the following command:
 
