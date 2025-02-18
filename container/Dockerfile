@@ -1,7 +1,7 @@
-FROM debian:11.7-slim
+FROM ubuntu:24.04
 
 LABEL authors="Ash Sawle" \
-      version="0.1-snapshot" \
+      version="1.0.0" \
       description="Software package/tool dependencies for the CRUK CI preprocess scRNAseq pipeline."
 
 RUN apt-get update && \
@@ -9,24 +9,24 @@ RUN apt-get update && \
     apt-get clean
 
 # Install Java
-RUN apt-get install -y openjdk-17-jre-headless && \
+RUN apt-get install -y openjdk-21-jre-headless && \
     apt-get clean
 
-ENV JAVA_HOME=/usr/lib/jvm/jre-17
+ENV JAVA_HOME=/usr/lib/jvm/jre-21
 
 # Install Cell Ranger
 # NOTE THAT THE URL IS A TEMPORARY LINK AND WILL EXPIRE
 
-RUN curl -o cellranger-8.0.1.tar.gz "https://cf.10xgenomics.com/releases/cell-exp/cellranger-8.0.1.tar.gz?Expires=1719975091&Key-Pair-Id=APKAI7S6A5RYOXBWRPDA&Signature=LXri15y4wRzFSEHkL~nsAS8P04iVoOaEiml4uBid9GtPQY53iy56vsc~TepB~oTqKTUxoX4f0dGJtmgMnHWt7PhhKxzSUZHpN0boWuLHjgfTAxggNzmfv3fY9YZ1AH7LgCawoUJBJd9jYG32rEE1FdkbT32OADDcvgvAxWYQIGsxR9Eg-irlZcDhQSkW4xhC2Up-7zlZaB5XCnDgIQBSOTzfdrikh5iY3g34fasYtlMBaRjYNyAwrF6bUeOOe2rYZdSpEltoduegwyzl4iq0Tww9yi2cFT6ClktKPzONZLzfZvbKbGG3pp78t1WZ5K-AtjulMOzdPhfZSF3vL~V7hA__" && \
+RUN curl -o cellranger-9.0.1.tar.gz "https://cf.10xgenomics.com/releases/cell-exp/cellranger-9.0.1.tar.gz?Expires=1739844570&Key-Pair-Id=APKAI7S6A5RYOXBWRPDA&Signature=DQZJQNqFd1FS1mxa7DTEf3k4sGQlAMU2tnBDmX2v-Y2xOMcGrGzQ0eOJ6p1CArAIBugkuOJhU30tdhXgqxQ8xdL0w5xipirTkOcnRyGDw~i~s3Aw6Cmrab3lPSqbCE5sfW~ZhAAsJE2z9nDSxwoc4~YALVY~If6YQflB3bPYwmJ5a2BcVxxXPgfr4ZBTJV~Q3oCHyJ8ZXgwXOZiKXg2rLgLdddZDNd~UWfcKeg8gbhpD~OY2ZIaWM6vmGKwu9c3uIlg0Chia9VApeTf78uyuZaeI5m8eUQhKg0I8hb0ZD4f-2sMhnjjIUgjsLDNWdfbDa6mjI8eN4ngxseOKiAmngg__" && \
     mkdir -p /opt && \
-    tar -C /opt -xzvf cellranger-8.0.1.tar.gz && \
-    mv /opt/cellranger-8.0.1 /opt/cellranger && \
-    rm -f cellranger-8.0.1.tar.gz
+    tar -C /opt -xzvf cellranger-9.0.1.tar.gz && \
+    mv /opt/cellranger-9.0.1 /opt/cellranger && \
+    rm -f cellranger-9.0.1.tar.gz
 
 ENV PATH=/opt/cellranger/bin:$PATH
 
 # Install Miniconda
-RUN curl -L -O https://github.com/conda-forge/miniforge/releases/download/24.3.0-0/miniforge3-linux-x86_64.sh && \
+RUN curl -L -O https://github.com/conda-forge/miniforge/releases/download/25.1.1-0/miniforge3-linux-x86_64.sh && \
     mkdir -p /opt && \
     sh miniforge3-linux-x86_64.sh -b -p /opt/miniforge3 && \
     rm miniforge3-linux-x86_64.sh
@@ -38,4 +38,5 @@ COPY conda_R.yaml .
 RUN /opt/miniforge3/bin/mamba env create -f conda_R.yaml && /opt/miniforge3/bin/mamba clean -a
 
 ENV PATH=/opt/miniforge3/envs/R/bin:$PATH
+
 
