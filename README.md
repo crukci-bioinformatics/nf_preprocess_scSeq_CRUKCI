@@ -42,7 +42,7 @@ Alternatively, if you wish to use an existing reference specify:
 ## CellRanger software
 
 The workflow has a singularity container that contains the CellRanger software
-version 8.0.1 and an R installation. This is currenly located at:
+version 9.0.1 and an R installation. This is currenly located at:
 
 * /home/bioinformatics/software/containers/cruk_ci_preprocess_scSeq-8.0.1.sif
 
