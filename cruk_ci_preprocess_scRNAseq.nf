@@ -8,7 +8,7 @@ include { displayParameters } from './functions/configuration'
 
 // Download the reference data
 process downloadReferences {
-    publishDir "${launchDir}/references", mode: 'link'
+    publishDir "references", mode: 'link'
     errorStrategy 'retry'
     maxRetries 5
 
@@ -39,7 +39,7 @@ process downloadReferences {
 }
 
 process downloadData {
-    publishDir "${launchDir}/${slxid}", mode: 'link'
+    publishDir "${slxid}", mode: 'link'
     input:
         val slxid
 
@@ -76,7 +76,7 @@ process renameFastq {
 }
 
 process cellRangerCount {
-    publishDir "${launchDir}/${params.slxid}", mode: 'link'
+    publishDir "${params.slxid}", mode: 'link'
     cpus 16
     memory 32.GB
     time 24.hour
@@ -106,7 +106,7 @@ process cellRangerCount {
 }
 
 process collectWebSummaries {
-    publishDir "${launchDir}/${params.slxid}/reports", mode: 'link'
+    publishDir "${params.slxid}/reports", mode: 'link'
 
     executor 'local'
 
@@ -140,7 +140,7 @@ process modifyMetrics {
 }
 
 process plotMetrics {
-    publishDir "${launchDir}/${params.slxid}/reports", mode: 'link'
+    publishDir "${params.slxid}/reports", mode: 'link'
 
     executor 'local'
 
