@@ -12,14 +12,14 @@ process downloadReferences {
     errorStrategy 'retry'
     maxRetries 5
 
-    when:
-    params.species != null && params.referenceDir == null
-
     input:
         val species
 
     output:
         path "refdata-gex*", emit: referenceDir
+
+    when:
+        params.species != null && params.referenceDir == null
 
     script:
         """
