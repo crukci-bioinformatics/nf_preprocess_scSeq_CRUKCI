@@ -156,9 +156,9 @@ process plotMetrics {
 
 }
 
-displayParameters(params)
-
 workflow {
+    displayParameters(params)
+
     speciesChannel = params.species
     slxChannel = params.slxid
 
