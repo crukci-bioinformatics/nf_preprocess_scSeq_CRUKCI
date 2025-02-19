@@ -3,7 +3,7 @@
 **This workflow is specifically designed to work with the CRUK CI computational infrastructure. It is not intended for general use.**
 
 The workflow downloads the single cell data as fastq from the Genomics server using
-Clarity tools, it then renames the fastq files to conform with CellRangers
+Clarity tools, it then renames the fastq files to conform with CellRanger's
 expected input file name format. The workflow then runs CellRanger count on the
 fastq files to generate the gene expression matrix.
 
@@ -17,7 +17,7 @@ The SLX id should be specified in a parameters yaml file or on the command line:
 * `slx_id`: The SLX ID of the sequencing run
 
 All of the workflow outputs will be published into a directory named after the
-SLX id.
+SLX ID.
 
 ## CellRanger reference
 
