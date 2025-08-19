@@ -64,7 +64,7 @@ process renameFastq {
         path 'fastq_renamed', emit: fastqDir
 
     script:
-        srchTerm = 'SLX-[0-9]*.\\([A-Z0-9]*\\).[A-Z0-9]*.s_\\([1-4]\\).\\([ri]\\)_\\([12]\\).fq.gz'
+        srchTerm = 'SLX-[0-9]*.\\([A-Z0-9]*\\).[A-Z0-9]*.s_\\([1-9]\\).\\([ri]\\)_\\([12]\\).fq.gz'
         replTerm = '\\1_S\\2_L001_\\u\\3\\4_001.fastq.gz'
         """ 
         mkdir -p fastq_renamed
