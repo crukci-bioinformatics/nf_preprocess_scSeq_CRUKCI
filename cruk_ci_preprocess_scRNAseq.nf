@@ -49,7 +49,7 @@ process downloadData {
     script:
         outdir = "fastq"
         """
-        curl -o clarity-tools.jar http://internal-bioinformatics.cruk.cam.ac.uk/software/clarity-tools.jar 
+        cp /home/bioinformatics/software/clarity-tools.jar .
         java -jar clarity-tools.jar --library ${slxid}
         mv ${slxid} ${outdir}
         """
