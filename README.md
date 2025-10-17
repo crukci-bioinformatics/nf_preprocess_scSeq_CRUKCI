@@ -37,7 +37,7 @@ The reference data will be published into the directory:
 
 Alternatively, if you wish to use an existing reference specify:
 
-* `reference_dir` - The path to the CellRanger reference_dir
+* `referenceDir` - The path to the CellRanger referenceDir
 
 ## CellRanger software
 
