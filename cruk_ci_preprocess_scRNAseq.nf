@@ -52,6 +52,10 @@ process downloadData {
         cp /home/bioinformatics/software/clarity-tools.jar .
         java -jar clarity-tools.jar --library ${slxid}
         mv ${slxid} ${outdir}
+        if grep -q  ERROR .command.out; then
+            echo "Error in downloading data."
+            exit 1
+        fi
         """
 }
 
